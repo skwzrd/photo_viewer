@@ -1,0 +1,107 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #242424;
+    padding: 10px;
+    color: #ddd;
+}
+
+h3 {
+    text-align: center;
+}
+
+a,
+a:visited {
+    color: #ddd;
+}
+
+.album-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 1800px;
+}
+
+.album-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: 1px solid #707070;
+    background-color: #353535;
+    transition: transform 0.2s;
+    font-size: small;
+}
+
+.album-item:hover {
+    transform: scale(1.05);
+}
+
+.album-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.albums {
+    list-style-type: none;
+    padding: 0;
+}
+
+.albums li {
+    padding: 10px;
+}
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.expanded .gallery img {
+    max-width: 90vw;
+    max-height: 80vw;
+    width: auto;
+    height: 500px;
+}
+
+.hide_element {
+    display: none;
+}
+
+.gallery-item img {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.metadata ul {
+    padding: 0;
+    margin: 0;
+    font-size: x-small;
+    text-align: left;
+    list-style-type: none;
+}
+
+button {
+    display: inline-block;
+    padding: 5px 5px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    margin: 2px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.2s;
+}

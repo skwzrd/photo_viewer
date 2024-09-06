@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="center">
+    <a href="{{ url_for('index') }}"><button>Index</button></a>
+    <button onclick="toggleGallery()">Mosaic</button>
+    <button onclick="toggleMetadata()">Exif</button>
+</div>
+<h3>{{ album_name }}</h3>
+<div class="gallery">
+    {% for image in images %}
+        <div class="gallery-item">
+            <a href="{{ url_for('serve_file', filename=album_name + '/' + image.filename) }}">
+                <img src="{{ url_for('serve_file', filename=album_name + '/' + image.filename) }}" alt="{{ image.filename }}" loading="lazy">
+            </a>
+            <div class="metadata">
+                <ul>
+                    <li>{{image.filename}}</li>
+                    {% for key, value in image.metadata.items() %}
+                        {% if value %}
+                        <li>{{ key.title() }}: {{ value }}</li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+<script>
+    function toggleMetadata() {
+        document.querySelectorAll('.metadata').forEach(element => {
+            element.classList.toggle('hide_element');
+        });
+    }
+    function toggleGallery() {
+        document.body.classList.toggle('expanded');
+    }
+</script>
+{% endblock %}
